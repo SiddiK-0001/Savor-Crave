@@ -148,10 +148,10 @@ const Login = () => {
                                 <Lottie className='w-60 hidden lg:flex' animationData={login}></Lottie>
                                 <h1 className="text-5xl font-bold text-white">Login now!</h1>
                                
-                                <p className='text-white text-xl mt-4'>Don't have an Account? Please <NavLink to="/register" className='text-[#9cfe60] text-2xl underline underline-offset-4'>Register</NavLink></p>
+                                <p className='text-white text-xl mt-4'>Don't have an Account? Please <NavLink to="/register" className='text-[#ab805d] text-2xl underline underline-offset-4'>Register</NavLink></p>
                             </div>
 
-                            <div className="card bg-[#6ff41c81] w-full max-w-sm shrink-0 shadow-2xl">
+                            <div className="card bg-[#9e673bd2] w-full max-w-sm shrink-0 shadow-2xl">
                                 <form onSubmit={handlelogin} className="card-body">
                                     <div className="form-control">
                                         <label className="label">
@@ -191,7 +191,7 @@ const Login = () => {
                                     </div>
 
                                     <div className="form-control mt-2">
-                                        <button className="btn  bg-black text-[#9cfe60] border-none font-bold text-xl">Login</button>
+                                        <button className="btn  bg-black text-[#d89d6c] border-none font-bold text-xl">Login</button>
                                     </div>
 
                                     <div className="flex items-center justify-center my-2">

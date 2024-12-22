@@ -1,41 +1,42 @@
-
+import cooking from '../assets/cooking.png'
 
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center bg-black text-white pb-10">
-                <footer className="footer bg-black text-white p-10 items-start gap-10">
+            <div className='bg-[#fee6d3] text-center text-black pb-4'>
+                <footer className="footer   p-10 items-start gap-10">
                     <aside className='text-left'>
-                        {/* <img className='w-16' src={sport} alt="" /> */}
+                        <img className='w-16' src={cooking} alt="" />
                         <p>
-                            Equi Sports
+                            <span className='text-2xl font-semibold text-[#704e33]'>Savor & Crave</span>
+
                             <br />
-                            Providing Best Accessories across the globe
+                            Providing Best Foods across in reasonable price
                         </p>
                     </aside>
                     <nav>
-                        <h6 className="footer-title text-xl text-[#69fe0f]">Services</h6>
+                        <h6 className="footer-title text-xl text-[#8c5f3c]">Services</h6>
                         <a className="link link-hover">Branding</a>
                         <a className="link link-hover">Design</a>
                         <a className="link link-hover">Marketing</a>
                         <a className="link link-hover">Advertisement</a>
                     </nav>
                     <nav>
-                        <h6 className="footer-title text-xl text-[#69fe0f]">Company</h6>
+                        <h6 className="footer-title text-xl text-[#8c5f3c]">Company</h6>
                         <a className="link link-hover">About us</a>
                         <a className="link link-hover">Contact</a>
                         <a className="link link-hover">Jobs</a>
                         <a className="link link-hover">Press kit</a>
                     </nav>
                     <nav>
-                        <h6 className="footer-title text-xl text-[#69fe0f]">Legal</h6>
+                        <h6 className="footer-title text-xl text-[#8c5f3c]">Legal</h6>
                         <a className="link link-hover">Terms of use</a>
                         <a className="link link-hover">Privacy policy</a>
                         <a className="link link-hover">Cookie policy</a>
                     </nav>
 
                     <nav>
-                        <h6 className="footer-title text-xl text-[#69fe0f]">Social</h6>
+                        <h6 className="footer-title text-xl text-[#8c5f3c]">Social</h6>
                         <div className="grid grid-flow-col gap-4">
                             <a>
                                 <svg
@@ -75,8 +76,8 @@ const Footer = () => {
                 </footer>
 
                 <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
-
-            </footer>
+                </div>
+            
         </div>
     );
 };

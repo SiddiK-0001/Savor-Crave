@@ -49,7 +49,7 @@ export default function Banner() {
            {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div
-              className="relative w-full h-[60vh] bg-cover bg-center"
+              className="relative w-full h-[80vh] bg-cover bg-center"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
               <div className="absolute inset-0 bg-black bg-opacity-50 flex  ">

@@ -1,10 +1,12 @@
 .active {
-    color: #f6f603; 
-    
+    color: #CEA17E; 
+    text-decoration: underline; 
+    text-underline-offset: 4px; 
+    text-decoration-color: #CEA17E;
 }
 
 a:hover{
-    color: #0028d8;
+    color: #9d4502;
 }
 
 /* .dropdown-menu {

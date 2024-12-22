@@ -128,12 +128,12 @@ const Register = () => {
                                 <div className="text-center lg:text-left">
                                     <h1 className="text-5xl font-bold text-white">Register now!</h1>
                                     <p className="py-6 text-white">
-                                        For a <span className='text-[#9cfe60] text-lg'>BETTER</span> user experience, please register and create your account. By signing up, you'll unlock personalized recommendations, access exclusive features, and save your progress for future visits. Registration is quick and easy, ensuring a seamless and tailored experience every time you use our platform.
+                                        For a <span className='text-[#9e673bd2] text-lg'>BETTER</span> user experience, please register and create your account. By signing up, you'll unlock personalized recommendations, access exclusive features, and save your progress for future visits. Registration is quick and easy, ensuring a seamless and tailored experience every time you use our platform.
                                     </p>
-                                    <p className='text-white text-3xl'>Already have an Account? Please <NavLink to="/login" className='text-[#9cfe60] text-4xl underline underline-offset-4'>Login</NavLink></p>
+                                    <p className='text-white text-3xl'>Already have an Account? Please <NavLink to="/login" className='text-[#9e673bd2] text-4xl underline underline-offset-4'>Login</NavLink></p>
                                 </div>
 
-                                <div className="card bg-[#73ff1ba1] w-full max-w-sm shrink-0 shadow-2xl">
+                                <div className="card bg-[#9e673bd2] w-full max-w-sm shrink-0 shadow-2xl">
                                     <form className="card-body" onSubmit={handleSignUp}>
 
 
@@ -185,7 +185,7 @@ const Register = () => {
                                             </label>
                                         </div>
                                         <div className="form-control mt-6">
-                                            <button type="submit" className="btn bg-black border-none text-[#9cfe60] font-bold text-xl">Register</button>
+                                            <button type="submit" className="btn bg-black border-none text-[#e99856] font-bold text-xl">Register</button>
                                         </div>
 
                                         <div className="flex items-center justify-center my-4">
@@ -195,8 +195,7 @@ const Register = () => {
                                     </div>
 
 
-                                    <button className='btn' onClick={handleGoogle}><FcGoogle className='text-3xl'></FcGoogle>Log in With <span className='text-xl text-[#316113] underline hover:text-red-950
-                                    '>GOOGLE</span></button>
+                                    <button className='btn text-xl' onClick={handleGoogle}><FcGoogle className='text-3xl'></FcGoogle>Log in With GOOGLE</button>
                                     </form>
 
                                     {

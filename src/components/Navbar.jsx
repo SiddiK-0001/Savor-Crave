@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import './Navbar.css'
 import { useContext } from "react";
 import { Authcontext } from "../provider/AuthProvider";
+import cooking from '../assets/cooking.png'
 
 
 const Navbar = () => {
@@ -43,7 +44,7 @@ const Navbar = () => {
             }
         </>
     return (
-        <div className="text-white px-2 bg-black">
+        <div className="text-black font-semibold px-2">
 
             <div className="navbar ">
                 <div className="navbar-start">
@@ -69,8 +70,10 @@ const Navbar = () => {
 
                         </ul>
                     </div>
-                    <a className="font-bold text-xl md:text-3xl"><span className="text-[#69fe0f] ">Equi</span>Sports</a>
-                    {/* <img className="w-12 md:w-16" src={sport} alt="" /> */}
+                   
+                   <a className="font-bold text-xl md:text-3xl text-[#af8464]  mr-1">Savor <span className="text-3xl lg:text-4xl">&</span> Crave</a>
+                   <img className="w-14 md:w-16 color-[#CEA17E]" src={cooking} alt="" />
+                   
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu gap-3 text-lg menu-horizontal px-1">
@@ -82,9 +85,9 @@ const Navbar = () => {
                     {
                         user ?
                             <div className="flex flex-col justify-end md:flex-row gap-2 items-center">
-                                <div className=" btn h-10 btn-xs rounded-full bg-[#193806] shadow-lg border border-[#69fe0f] "
+                                <div
                                 title={user?.displayName || "No Name"}>
-                                    <img className="rounded-full w-7 h-7" src={user?.photoURL
+                                    <img className=" border-2 border-[#CEA17E] rounded-full w-9" src={user?.photoURL
                                     } alt="" />
                                     
                                 </div>
@@ -96,10 +99,10 @@ const Navbar = () => {
                                         {user?.displayName || "No Name"}
                                     </div>
                                 </div> */}
-                                <button onClick={handleOut} className="btn btn-sm md:btn-md bg-[#69fe0f] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
+                                <button onClick={handleOut} className="btn btn-sm md:btn-md bg-[#CEA17E] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
                             </div>
                             :
-                            <Link className="btn rounded-3xl border-none bg-[#69fe0f] text-lg font-bold text-black" to='/login'>Log in</Link>
+                            <Link className="btn rounded-3xl border-none bg-[#CEA17E] text-lg font-bold text-black" to='/login'>Log in</Link>
                     }
                 </div>
             </div>
