@@ -1,0 +1,18 @@
+.active {
+    color: #f6f603; 
+    
+}
+
+a:hover{
+    color: #0028d8;
+}
+
+/* .dropdown-menu {
+    position: absolute;
+    z-index: 1050; 
+} */
+
+.navbar {
+    position: relative;
+    z-index: 10; 
+}
