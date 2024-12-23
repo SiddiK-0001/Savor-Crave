@@ -16,7 +16,7 @@ const Register = () => {
     const navigate = useNavigate();
     const [eye, setEye] = useState(false);
 
-    const { createUser,signInWithGoogle } = useContext(Authcontext)
+    const { createUser,signInWithGoogle,setLoading } = useContext(Authcontext)
 
     const handleEye = () => {
         setEye(!eye)
@@ -39,7 +39,8 @@ const Register = () => {
 
         })
         .catch(error => {
-            setError(error.message)
+            setError(error.message);
+            setLoading(false);
         })
 
     }
@@ -199,7 +200,7 @@ const Register = () => {
                                     </form>
 
                                     {
-                                        errorMessage && <p className="text-center text-red-600">{errorMessage}</p>
+                                        errorMessage && <p className="text-center text-white mb-3">!!{errorMessage}!!</p>
                                     }
 
                                    

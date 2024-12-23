@@ -10,7 +10,7 @@ import { FaEye } from "react-icons/fa";
 import { IoIosEyeOff } from "react-icons/io";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../provider/AuthProvider';
 import { FcGoogle } from 'react-icons/fc';
 import { sendPasswordResetEmail } from 'firebase/auth';
@@ -23,32 +23,37 @@ const Login = () => {
     const [eye, setEye] = useState(false)
     const emailRefoo = useRef();
     const navigate = useNavigate();
+    const location = useLocation();
 
-    const { loginUser,signInWithGoogle } = useContext(Authcontext)
+    const from = location.state || '/';
+
+    const { loginUser, signInWithGoogle,setLoading } = useContext(Authcontext)
 
     const handleEye = () => {
         setEye(!eye)
     }
 
-    const handleGoogle =()=>{
-        return signInWithGoogle()
-        .then(result => {
-            // console.log(result.user)
+    const handleGoogle = () => {
+        setError('');
 
-            toast.success('Successfully logged in', {
-                autoClose: 500
-            });
+        signInWithGoogle()
+            .then(result => {
+                // console.log(result.user)
 
-           
+                toast.success('Successfully logged in', {
+                    autoClose: 500
+                });
 
-            setTimeout(() => {
-                navigate('/');
-            }, 1000);
 
-        })
-        .catch(error => {
-            setError(error.message)
-        })
+
+                setTimeout(() => {
+                    navigate(from);
+                }, 1000);
+
+            })
+            .catch(error => {
+                setError(error.message)
+            })
 
     }
 
@@ -85,37 +90,38 @@ const Login = () => {
                 e.target.reset();
 
                 setTimeout(() => {
-                    navigate('/');
+                    navigate(from);
                 }, 1000);
 
             })
             .catch(error => {
-                // setError(error.message)
+                setError(error.message);
+                setLoading(false);
             })
 
 
     }
 
-    const handlePass=()=>{
+    const handlePass = () => {
         const email = emailRefoo.current.value;
-      if(email){
-        sendPasswordResetEmail(auth, email)
-        .then(() => {
-            toast.success('Password reset email sent,check your email',{
-                autoClose: 500
-            });
-                               
-        })
+        if (email) {
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    toast.success('Password reset email sent,check your email', {
+                        autoClose: 500
+                    });
 
-        .catch((error) => {
-        //   console.log(error)
-        });
-    }
-    else{        
-        toast.error("Something went wrong", {
-            autoClose: 2000,
-        });
-      }
+                })
+
+                .catch((error) => {
+                    //   console.log(error)
+                });
+        }
+        else {
+            toast.error("Something went wrong", {
+                autoClose: 2000,
+            });
+        }
     }
 
 
@@ -133,7 +139,7 @@ const Login = () => {
                     backgroundPosition: "center",
                     minHeight: "60vh",
                     width: "100%",
-                  
+
                     backgroundColor: "rgba(0, 0, 0, 0.7)",
                     backgroundBlendMode: "overlay",
                 }}
@@ -147,7 +153,7 @@ const Login = () => {
                             <div className="text-center lg:text-left">
                                 <Lottie className='w-60 hidden lg:flex' animationData={login}></Lottie>
                                 <h1 className="text-5xl font-bold text-white">Login now!</h1>
-                               
+
                                 <p className='text-white text-xl mt-4'>Don't have an Account? Please <NavLink to="/register" className='text-[#ab805d] text-2xl underline underline-offset-4'>Register</NavLink></p>
                             </div>
 
@@ -157,7 +163,7 @@ const Login = () => {
                                         <label className="label">
                                             <span className="text-lg font-bold ">Email</span>
                                         </label>
-                                        <input ref={emailRefoo} type="email"  name="email" placeholder="email" className="input input-bordered" required />
+                                        <input ref={emailRefoo} type="email" name="email" placeholder="email" className="input input-bordered" required />
                                     </div>
 
 
@@ -173,13 +179,13 @@ const Login = () => {
                                             }
                                         </button>
 
-                                     
+
 
 
                                         <button type='button' onClick={handlePass} className="label">
                                             <span className="label-text-alt  link link-hover text-black font-bold ">Forgot password?</span>
                                         </button >
-                                        
+
                                     </div>
 
 
@@ -206,14 +212,17 @@ const Login = () => {
 
                                 </form>
                                 {
-                                    errorMessage && <p className="text-red-700 font-bold text-center">{errorMessage}</p>
+                                    errorMessage &&
+                                    (
+                                        <p className="text-white text-center mb-4 tracking-wider">!!{errorMessage}!!</p>
+                                    )
                                 }
 
                             </div>
                         </div>
                     </div>
 
-                 
+
 
                 </div>
 
