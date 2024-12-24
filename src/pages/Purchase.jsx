@@ -22,7 +22,7 @@ const Purchase = () => {
 
 
 
-            <div className="my-10 px-5 bg-gray-100 flex items-center justify-center">
+            <div className="mb-10 px-5 flex items-center justify-center -mt-20">
                 <form
 
                     className="bg-white border border-[#CEA17E] rounded-lg shadow-md p-6 w-full max-w-md"

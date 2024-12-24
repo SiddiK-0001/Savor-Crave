@@ -23,9 +23,10 @@ const Photos = ({ item }) => {
 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-xl font-semibold text-white">{user?.displayName}</p>
-                    <p className="text-lg text-gray-200 mt-2 px-4 text-center">{item?.name}</p>
-                    <p className="text-sm text-gray-200 mt-2 px-4 text-center">{item?.description}</p>
+                    <p className="text-2xl text-gray-200 mt-2 px-4 text-center font-semibold">{item?.name}</p>
+                    <p className="text-lg text-gray-200 mt-2 px-4 text-center">Price: {item?.price}$</p>
+                    <p className="text-md text-gray-200 mt-2 px-4 text-center">{item?.description}</p>
+                    <p className="text-sm text-white mt-4 tracking-widest">Added by: {item?.userName}</p>
                 </div>
             </div>
 

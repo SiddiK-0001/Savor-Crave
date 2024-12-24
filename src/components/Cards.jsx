@@ -36,7 +36,7 @@ const Cards = ({item}) => {
        </div>
 
            <div>
-           <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E] mr-1'> Available</button>
+           <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E] mr-1 text-sm '> <strong>Available Quatity:</strong>{item.quantity}</button>
            <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E]'>Cash on Delivery</button>
            </div>
            

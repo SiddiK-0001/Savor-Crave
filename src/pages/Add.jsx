@@ -1,9 +1,48 @@
 import React, { useContext } from 'react';
 import { Authcontext } from '../provider/AuthProvider';
 import cooking from '../assets/cooking.png'
+import Swal from 'sweetalert2';
 
 const Add = () => {
-    const {user} = useContext(Authcontext)
+    const {user} = useContext(Authcontext);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const initialData = Object.fromEntries(formData.entries());
+
+        initialData.userName = user.displayName;
+        initialData.email = user.email;
+
+        console.log(initialData)
+    
+    
+        fetch("http://localhost:5000/food", {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json"
+          },
+          body: JSON.stringify(initialData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+    
+            //  console.log(data)
+            if (data.insertedId) {
+              Swal.fire({
+                title: "Successfully Added",
+    
+                icon: "success"
+              });
+    
+            }
+          })
+    
+      };
+
+
+
     return (
         <div>
 
@@ -16,7 +55,7 @@ const Add = () => {
         </h2>
         <img className='w-16' src={cooking} alt="" />
         </div>
-      <form
+      <form onSubmit={handleSubmit}
         
         className="bg-gray-100 p-8 rounded-lg shadow-md w-full max-w-2xl"
       >
@@ -26,7 +65,7 @@ const Add = () => {
           <label className="block text-gray-700 font-medium mb-2">Food Name</label>
           <input
             type="text"
-            name="foodName"          
+            name="name"          
             
             placeholder="Enter food name"
             className="w-full border rounded-lg p-2"
@@ -39,7 +78,7 @@ const Add = () => {
           <label className="block text-gray-700 font-medium mb-2">Food Image</label>
           <input
             type="url"
-            name="foodImage"
+            name="image_url"
                       
             placeholder="Enter food image URL"
             className="w-full border rounded-lg p-2"
@@ -52,7 +91,7 @@ const Add = () => {
           <label className="block text-gray-700 font-medium mb-2">Food Category</label>
           <input
             type="text"
-            name="foodCategory"            
+            name="category"            
             
             placeholder="Enter food category"
             className="w-full border rounded-lg p-2"
@@ -91,7 +130,7 @@ const Add = () => {
           <label className="block text-gray-700 font-medium mb-2">Food Origin</label>
           <input
             type="text"
-            name="foodOrigin"
+            name="origin"
                         
             placeholder="Enter country of origin"
             className="w-full border rounded-lg p-2"
@@ -143,3 +182,7 @@ const Add = () => {
 };
 
 export default Add;
+
+
+
+

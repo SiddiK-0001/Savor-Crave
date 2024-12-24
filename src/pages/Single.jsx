@@ -10,7 +10,7 @@ const Single = () => {
                 <p className='text-5xl text-center mt-7 font-semibold text-white'> Food<span className='text-6xl text-[#ce864f]'>Details </span> </p>
 
                 <p className="text-lg text-gray-300 mt-4 tracking-widest text-center mb-28">
-                Detailed information to help you make an informed purchase decision.
+                    Detailed information to help you make an informed purchase decision.
                 </p>
 
             </div>
@@ -30,7 +30,7 @@ const Single = () => {
 
                     <div className='flex justify-between items-start'>
                         <div>
-                            <ul className="mt-3 text-gray-800 text-sm space-y-1">
+                            <ul className="mt-3 text-gray-800 text-md space-y-2">
                                 <li>
                                     <strong>Category:</strong> {item.category}
                                 </li>
@@ -50,8 +50,23 @@ const Single = () => {
                         </div>
 
                         <div>
-                            <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E] mr-1'> Available</button>
+                            <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E] mr-1 text-sm '> <strong>Available Quatity:</strong>{item.quantity}</button>
                             <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E]'>Cash on Delivery</button>
+                            <ul className="mt-3 text-gray-800 text-md space-y-1">
+                                <li>
+                                    <strong>Origin:</strong> {item.origin}
+                                </li>
+                                <li>
+                                    <ul className="mt-3 text-gray-800 text-md space-y-1">
+                                        <p><strong>Key Ingridients:</strong></p>
+                                        {
+                                            item.ingredients.map((i,idx) =><li className='ml-6'><strong>{idx+1}.</strong>{i}</li>)
+                                        }
+                                    </ul>
+                                </li>
+
+
+                            </ul>
                         </div>
 
 
