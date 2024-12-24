@@ -53,7 +53,7 @@ const Add = () => {
         <h2 className="text-4xl font-bold text-center text-[#b07243] mb-6 mr-2">
           Add Food Item
         </h2>
-        <img className='w-16' src={cooking} alt="" />
+        <img className='w-16 -mt-3' src={cooking} alt="" />
         </div>
       <form onSubmit={handleSubmit}
         

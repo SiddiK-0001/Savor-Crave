@@ -27,11 +27,12 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
             <NavLink to="/all">All Foods</NavLink>
             <NavLink to="/gallery">Gallery</NavLink>
-            <NavLink to="/add">Add Food</NavLink>
             {
                 user &&
                 <>
+                <NavLink to="/add">Add Food</NavLink>
                     <NavLink to="/my">My Foods</NavLink>
+                    <NavLink to="/orders">My Orders</NavLink>
 
                 </>
             }

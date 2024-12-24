@@ -10,6 +10,9 @@ import All from "../pages/All";
 import Single from "../pages/Single";
 import Purchase from "../pages/Purchase";
 import Gallery from "../pages/Gallery";
+import My from "../pages/My";
+import Update from "../pages/Update";
+import Orders from "../pages/Orders";
 
 
 
@@ -46,6 +49,19 @@ const Routes = createBrowserRouter([
             {
                 path:"/add",
                 element:<PrivateRoute><Add></Add></PrivateRoute>
+            },
+            {
+                path:"/my",
+                element:<PrivateRoute><My></My></PrivateRoute>
+            },
+            {
+                path:"/orders",
+                element:<PrivateRoute><Orders></Orders></PrivateRoute>
+            },
+            {
+                path:"/update/:id",
+                element:<PrivateRoute><Update></Update></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/foodss/${params.id}`)
             },
             {
                 path:"/login",

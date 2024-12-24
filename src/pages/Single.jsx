@@ -35,7 +35,7 @@ const Single = () => {
                                     <strong>Category:</strong> {item.category}
                                 </li>
                                 <li>
-                                    <strong>Price:</strong> ${item.price.toFixed(2)}
+                                    <strong>Price:</strong> ${item.price}
                                 </li>
                                 <li>
                                     <strong>Calories:</strong> {item.calories} kcal
@@ -54,13 +54,13 @@ const Single = () => {
                             <button className='btn btn-xs mt-4  rounded-3xl bg-[#ebc7ac7d] border border-[#CEA17E]'>Cash on Delivery</button>
                             <ul className="mt-3 text-gray-800 text-md space-y-1">
                                 <li>
-                                    <strong>Origin:</strong> {item.origin}
+                                    <strong>Origin:</strong> {item?.origin}
                                 </li>
                                 <li>
                                     <ul className="mt-3 text-gray-800 text-md space-y-1">
                                         <p><strong>Key Ingridients:</strong></p>
                                         {
-                                            item.ingredients.map((i,idx) =><li className='ml-6'><strong>{idx+1}.</strong>{i}</li>)
+                                            item?.ingredients?.map((i,idx) =><li key={idx} className='ml-6'><strong>{idx+1}.</strong>{i}</li>)
                                         }
                                     </ul>
                                 </li>

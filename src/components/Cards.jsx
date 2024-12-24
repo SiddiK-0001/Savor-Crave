@@ -21,7 +21,7 @@ const Cards = ({item}) => {
               <strong>Category:</strong> {item.category}
             </li>
             <li>
-              <strong>Price:</strong> ${item.price.toFixed(2)}
+              <strong>Price:</strong> ${item.price}
             </li>
             <li>
               <strong>Calories:</strong> {item.calories} kcal

@@ -1,11 +1,46 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
 import { Authcontext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Purchase = () => {
     const food = useLoaderData();
+    const {id} = useParams();
     const { user } = useContext(Authcontext);
-    console.log(user)
+    // console.log(user)
+
+    const handleAdd = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const initialData = Object.fromEntries(formData.entries());
+
+        initialData._id = id;
+   
+    
+    
+        fetch("http://localhost:5000/order", {
+          method: "POST",
+          headers: {
+            "content-Type": "application/json"
+          },
+          body: JSON.stringify(initialData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+    
+            //  console.log(data)
+            if (data.insertedId) {
+              Swal.fire({
+                title: "Order Done",
+    
+                icon: "success"
+              });
+    
+            }
+          })
+    
+      };
     return (
         <div>
 
@@ -23,7 +58,7 @@ const Purchase = () => {
 
 
             <div className="mb-10 px-5 flex items-center justify-center -mt-20">
-                <form
+                <form onSubmit={handleAdd}
 
                     className="bg-white border border-[#CEA17E] rounded-lg shadow-md p-6 w-full max-w-md"
                 >
