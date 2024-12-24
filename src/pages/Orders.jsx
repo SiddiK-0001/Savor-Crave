@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../provider/AuthProvider';
-import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Orders = () => {
     const {user } = useContext(Authcontext);
@@ -13,6 +13,46 @@ const Orders = () => {
                 .then(data => setitems(data));
         }
     }, [user]);
+
+   
+
+
+    const handleDelete = (_id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            cancelButtonColor: "#d33",
+            confirmButtonColor: "#3085d6",
+            confirmButtonText: "Yes, delete it!"
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    // console.log(_id)
+
+                    fetch(`http://localhost:5000/delete/${_id}`, {
+                        method: 'DELETE',
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            // console.log(data)
+                            if (data.deletedCount > 0) {
+                                Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your Food Item has been deleted.",
+                                    icon: "success"
+                                });
+                                const remaining = items.filter(i => i._id !== _id)
+                                setitems(remaining)
+                            }
+
+                        })
+                }
+            });
+    }
+
     return (
         <div>
 
@@ -32,11 +72,11 @@ const Orders = () => {
                 <thead>
                     <tr>
 
-                        <th>No.</th>
+                        <th className="hidden md:table-cell">No.</th>
                         <th>Name</th>
                         <th className="hidden md:table-cell">Description</th>
-                        <th className="hidden md:table-cell">Quantity</th>
-                        <th className="hidden md:table-cell">Price</th>
+                        <th >Quantity</th>
+                        <th >Price per Item</th>
 
                     </tr>
                 </thead>
@@ -44,12 +84,12 @@ const Orders = () => {
 
                     {items.map((item, index) => (
                         <tr key={index}>
-                            <th>
+                            <th className="hidden md:table-cell">
                                 {index + 1}
                             </th>
                             <td>
                                 <div className="flex items-center gap-3">
-                                    <div className="avatar">
+                                    <div className="avatar hidden md:flex">
                                         <div className="mask mask-squircle h-12 w-12">
                                             <img
                                                 src={item.image_url}
@@ -59,7 +99,7 @@ const Orders = () => {
                                     </div>
                                     <div>
                                         <div className="font-bold">{item.foodName}</div>
-                                        <div className="text-sm opacity-50">{item.category}</div>
+                                        
                                     </div>
                                 </div>
                             </td>
@@ -72,14 +112,14 @@ const Orders = () => {
                                 </span>
                             </td>
 
-                            <td className="hidden md:table-cell">
+                            <td >
                                 {item?.quantity}</td>
-                            <td className="hidden md:table-cell">${item?.price}</td>
+                            <td >${item?.price}</td>
 
                             <td>
-                                <Link to={`/update/${item._id}`} className="btn bg-[#be8f6a] text-white">
-                                    Update
-                                </Link>
+                                <button onClick={()=>handleDelete(item._id)} className="btn btn-sm rounded-full bg-[#6b4c35] text-white">
+                                    X
+                                </button>
                             </td>
                         </tr>
                     ))}
