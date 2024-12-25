@@ -44,13 +44,13 @@ const Add = () => {
 
 
     return (
-        <div>
+        <div className="bg-cover bg-center bg-[url('https://i.pinimg.com/236x/58/b3/a8/58b3a8a6900de7c174851d9b10673cd9.jpg')] bg-blend-overlay bg-black bg-opacity-90 min-h-[70vh] flex flex-col items-center justify-center">
 
 
-    <div className="min-h-screen flex flex-col items-center justify-center  my-10">
+    <div className=" flex flex-col items-center justify-center  my-10">
 
         <div className='flex items-start'>
-        <h2 className="text-4xl font-bold text-center text-[#b07243] mb-6 mr-2">
+        <h2 className="text-4xl font-bold text-center text-[#b07243] mb-6 mr-2 tracking-widest">
           Add Food Item
         </h2>
         <img className='w-16 -mt-3' src={cooking} alt="" />

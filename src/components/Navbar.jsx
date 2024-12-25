@@ -3,6 +3,7 @@ import './Navbar.css'
 import { useContext } from "react";
 import { Authcontext } from "../provider/AuthProvider";
 import cooking from '../assets/cooking.png'
+import { FaSignOutAlt } from "react-icons/fa";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -30,7 +31,7 @@ const Navbar = () => {
             {
                 user &&
                 <>
-                <NavLink to="/add">Add Food</NavLink>
+                    <NavLink to="/add">Add Food</NavLink>
                     <NavLink to="/my">My Foods</NavLink>
                     <NavLink to="/orders">My Orders</NavLink>
 
@@ -69,20 +70,45 @@ const Navbar = () => {
                     <img className="w-14 md:w-16 color-[#CEA17E]" src={cooking} alt="" />
 
                 </div>
-               
-                    <div className="navbar-center hidden lg:flex">
-                        <ul className="menu gap-3 text-lg menu-horizontal px-1">
-                            {links}
-                        </ul>
-                    </div>
-              
+
+                <div className="navbar-center hidden lg:flex">
+                    <ul className="menu gap-3 text-lg menu-horizontal px-1">
+                        {links}
+                    </ul>
+                </div>
+
                 <div className="navbar-end">
-                {loading ? (
+                    {loading ? (
                         <span className="loading loading-spinner loading-lg text-black"></span>
                     ) : user ? (
-                        <div className="flex flex-col justify-end md:flex-row gap-2 items-center">
-                            <img className="border-2 border-[#CEA17E] rounded-full w-9" src={user?.photoURL} alt="" />
-                            <button onClick={handleOut} className="btn btn-sm md:btn-md bg-[#CEA17E] text-lg border-none font-bold text-black rounded-3xl">Sign out</button>
+                        <div className="flex justify-end gap-1 items-center">
+
+
+                            <div className="dropdown">
+                                <div tabIndex={0} >
+                                    <img className="border-2 border-[#CEA17E] rounded-full w-9" src={user?.photoURL} alt="" />
+                                </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-24 -right-7 p-2 shadow">
+                                    <NavLink to="/add">Add Food</NavLink>
+                                    <NavLink to="/my">My Foods</NavLink>
+                                    <NavLink to="/orders">My Orders</NavLink>
+
+                                </ul>
+                            </div>
+
+
+
+
+
+                            <button onClick={handleOut} className="btn btn-sm md:btn-md bg-[#CEA17E] text-lg border-none font-bold text-black rounded-3xl">
+                                <span className="hidden md:inline">Sign out</span>
+                                <span className="inline md:hidden" >
+                                    <FaSignOutAlt />
+                                </span>
+
+                            </button>
                         </div>
                     ) : (
                         <Link className="btn rounded-3xl border-none bg-[#CEA17E] text-lg font-bold text-black" to='/login'>Log in</Link>

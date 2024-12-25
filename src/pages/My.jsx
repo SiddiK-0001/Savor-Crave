@@ -20,7 +20,7 @@ const My = () => {
                 <div className='h-px flex-grow bg-[#CEA17E]'>
                 </div>
                 <div>
-                    <p className="text-center text-4xl font-bold px-3 shadow-md bg-[url('https://i.pinimg.com/236x/6b/38/ef/6b38ef66e69c53fc92a56766ff56adff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#ab7044] text-white py-2">My Foods</p>
+                    <p className="text-center text-4xl font-bold px-3 shadow-md bg-[url('https://i.pinimg.com/236x/6b/38/ef/6b38ef66e69c53fc92a56766ff56adff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#ab7044] text-white py-2">Foods Added by Me</p>
                 </div>
                 <div className='h-px flex-grow bg-[#CEA17E]'>
                 </div>
