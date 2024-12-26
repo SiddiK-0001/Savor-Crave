@@ -175,10 +175,14 @@ const Purchase = () => {
                     {/* Purchase Button */}
                     <button
                         type="submit"
-                        
-                        className="w-full py-2 bg-[#CEA17E] text-white font-semibold rounded-lg hover:bg-[#654933] transition-colors duration-400"
+                        disabled={food.quantity === 0}
+                        className={`w-full py-2 font-semibold rounded-lg transition-colors text-white duration-400 ${
+                            food.quantity === 0
+                                ? "bg-[#4b321b] cursor-not-allowed"
+                                : "bg-[#CEA17E]  hover:bg-[#654933]"
+                        }`}
                     >
-                        Purchase
+                        {food.quantity === 0 ? "Out of Stock" : "Purchase"}
                     </button>
                 </form>
             </div>
