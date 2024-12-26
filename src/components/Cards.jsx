@@ -32,6 +32,9 @@ const Cards = ({item}) => {
             <li>
               <strong>Prep Time:</strong> {item.preparation_time}
             </li>
+            <li>
+              <strong>Purchase Count:</strong> {item?.purchase || 0} 
+            </li>
           </ul>
        </div>
 
