@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import React, { useContext, useEffect } from 'react';
+import {  useLoaderData,  useParams } from 'react-router-dom';
 import { Authcontext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+
 
 const Purchase = () => {
     const food = useLoaderData();
     const {id} = useParams();
     const { user } = useContext(Authcontext);
-    // console.log(user)
+ 
+
+  
+
+   
 
     const handleAdd = (e) => {
         e.preventDefault();
@@ -15,7 +20,32 @@ const Purchase = () => {
         const formData = new FormData(e.target);
         const initialData = Object.fromEntries(formData.entries());
 
-        initialData._id = id;
+
+        if (user.email === food?.email) {
+             
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Cannot buy your own added food item",
+            })
+            return;
+            };
+
+        initialData.id = id;
+        initialData.newQuantity = parseInt(food.quantity)-parseInt(initialData.purchaseCount);
+
+        // console.log( initialData.purchaseCount)
+        
+
+        if(initialData.purchaseCount>food.quantity){
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "You cannot order more than available quantity",
+                
+              });
+              return;
+        }
    
     
     
@@ -98,13 +128,13 @@ const Purchase = () => {
 
                     {/* Quantity */}
                     <div className="mb-4">
-                        <label htmlFor="quantity" className="block text-gray-700 font-medium mb-1">
-                            Quantity
+                        <label  className="block text-gray-700 font-medium mb-1">
+                            Quantity (Available: {food.quantity})
                         </label>
                         <input
                             type="number"
                             id="quantity"
-                            name="quantity"
+                            name="purchaseCount"
                             min="1"
 
                             required
@@ -114,14 +144,14 @@ const Purchase = () => {
 
                     {/* Buyer Name (Read-Only) */}
                     <div className="mb-4">
-                        <label htmlFor="buyerName" className="block text-gray-700 font-medium mb-1">
+                        <label  className="block text-gray-700 font-medium mb-1">
                             Buyer Name
                         </label>
                         <input
                             type="text"
                             id="buyerName"
                             name="buyerName"
-                            value={user.displayName}
+                            value={user?.displayName}
                             readOnly
                             className="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-lg "
                         />
@@ -129,14 +159,14 @@ const Purchase = () => {
 
                     {/* Buyer Email (Read-Only) */}
                     <div className="mb-4">
-                        <label htmlFor="buyerEmail" className="block text-gray-700 font-medium mb-1">
+                        <label  className="block text-gray-700 font-medium mb-1">
                             Buyer Email
                         </label>
                         <input
                             type="email"
                             id="buyerEmail"
                             name="buyerEmail"
-                            value={user.email}
+                            value={user?.email}
                             readOnly
                             className="w-full px-3 py-2 border border-gray-300 bg-gray-100 rounded-lg "
                         />
@@ -145,6 +175,7 @@ const Purchase = () => {
                     {/* Purchase Button */}
                     <button
                         type="submit"
+                        
                         className="w-full py-2 bg-[#CEA17E] text-white font-semibold rounded-lg hover:bg-[#654933] transition-colors duration-400"
                     >
                         Purchase

@@ -1,8 +1,14 @@
-import React from 'react';
+
 import { Link, useLoaderData } from 'react-router-dom';
+
+
 
 const Single = () => {
     const item = useLoaderData();
+      
+    
+
+     
     return (
         <div>
 
@@ -28,8 +34,8 @@ const Single = () => {
                     <h2 className="text-3xl font-bold text-[#90613d]">{item.name}</h2>
                     <p className="text-gray-600 text-sm mt-2">{item.description}</p>
 
-                    <div className='flex justify-between items-start'>
-                        <div>
+                    <div className='flex justify-between items-start flex-col md:flex-row gap-3'>
+                        <div >
                             <ul className="mt-3 text-gray-800 text-md space-y-2">
                                 <li>
                                     <strong>Category:</strong> {item.category}

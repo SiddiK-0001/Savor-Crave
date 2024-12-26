@@ -196,7 +196,7 @@ const Register = () => {
                                     </div>
 
 
-                                    <button className='btn text-xl' onClick={handleGoogle}><FcGoogle className='text-3xl'></FcGoogle>Log in With GOOGLE</button>
+                                    <button className='btn text-xl' onClick={handleGoogle}><FcGoogle className='text-3xl'></FcGoogle> GOOGLE SignUp</button>
                                     </form>
 
                                     {

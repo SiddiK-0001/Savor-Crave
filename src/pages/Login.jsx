@@ -137,7 +137,7 @@ const Login = () => {
                     backgroundSize: "cover",
 
                     backgroundPosition: "center",
-                    minHeight: "60vh",
+                    minHeight: "80vh",
                     width: "100%",
 
                     backgroundColor: "rgba(0, 0, 0, 0.7)",
@@ -207,7 +207,11 @@ const Login = () => {
                                     </div>
 
 
-                                    <button className='btn text-xl' onClick={handleGoogle}><FcGoogle className='text-4xl'></FcGoogle>Log in With GOOGLE</button>
+                                    <button className='btn text-xl ' onClick={handleGoogle}>
+                                        
+                                        <FcGoogle className='text-2xl'></FcGoogle>GOOGLE Login
+                                        
+                                        </button>
 
 
                                 </form>

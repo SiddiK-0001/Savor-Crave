@@ -99,6 +99,7 @@ const Orders = () => {
                                     </div>
                                     <div>
                                         <div className="font-bold">{item.foodName}</div>
+                                        <div className="font-thin text-xs">{item.userName}(Owner)</div>
                                         
                                     </div>
                                 </div>
@@ -113,11 +114,13 @@ const Orders = () => {
                             </td>
 
                             <td >
-                                {item?.quantity}</td>
+                                {item?.purchaseCount}</td>
                             <td >${item?.price}</td>
 
                             <td>
-                                <button onClick={()=>handleDelete(item._id)} className="btn btn-sm rounded-full bg-[#6b4c35] text-white">
+                                <button onClick={()=>handleDelete(item._id)}
+                                
+                                 className="btn btn-sm rounded-full bg-[#6b4c35] text-white">
                                     X
                                 </button>
                             </td>
