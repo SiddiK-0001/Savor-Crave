@@ -15,29 +15,44 @@ const Add = () => {
         initialData.userName = user.displayName;
         initialData.email = user.email;
 
-        console.log(initialData)
+        // console.log(initialData)
     
     
-        fetch("http://localhost:5000/food", {
-          method: "POST",
-          headers: {
-            "content-Type": "application/json"
-          },
-          body: JSON.stringify(initialData),
+        // fetch("https://assignment-11-server-six-cyan.vercel.app/food", {
+        //   method: "POST",
+        //   headers: {
+        //     "content-Type": "application/json"
+        //   },
+        //   body: JSON.stringify(initialData),
+        // })
+        //   .then((res) => res.json())
+        //   .then((data) => {
+    
+        //     //  console.log(data)
+        //     if (data.insertedId) {
+        //       Swal.fire({
+        //         title: "Successfully Added",
+    
+        //         icon: "success"
+        //       });
+    
+        //     }
+        //   })
+
+        axios
+        .post("https://assignment-11-server-six-cyan.vercel.app/food", initialData,{
+          withCredentials: true
         })
-          .then((res) => res.json())
-          .then((data) => {
-    
-            //  console.log(data)
-            if (data.insertedId) {
-              Swal.fire({
-                title: "Successfully Added",
-    
-                icon: "success"
-              });
-    
-            }
-          })
+        .then((res) => {
+          const data = res.data;
+      
+          if (data.insertedId) {
+            Swal.fire({
+              title: "Successfully Added",
+              icon: "success",
+            });
+          }
+        })
     
       };
 

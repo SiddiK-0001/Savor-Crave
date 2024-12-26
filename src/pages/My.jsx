@@ -1,17 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const My = () => {
     const { user } = useContext(Authcontext);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/foodsss?email=${user.email}`)
-                .then(res => res.json())
-                .then(data => setItems(data));
-        }
+
+        // fetch(`https://assignment-11-server-six-cyan.vercel.app/foodsss?email=${user.email}`)
+        //     .then(res => res.json())
+        //     .then(data => setItems(data));
+
+        axios.get(`https://assignment-11-server-six-cyan.vercel.app/foodsss?email=${user.email}`, {
+            withCredentials: true
+        })
+            .then(res => setItems(res.data))
+
     }, [user])
     return (
         <div>

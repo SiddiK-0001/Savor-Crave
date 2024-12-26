@@ -16,7 +16,7 @@ const Update = () => {
         const initialData = Object.fromEntries(formData.entries());
     
     
-        fetch(`http://localhost:5000/food/${item._id}`, {
+        fetch(`https://assignment-11-server-six-cyan.vercel.app/food/${item._id}`, {
           method: "PUT",
           headers: {
              "content-Type": "application/json"

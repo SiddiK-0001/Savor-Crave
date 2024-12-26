@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase.init';
+import axios from 'axios';
 
 
 export const Authcontext = createContext(null);
@@ -34,12 +35,26 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             
-            if (currentUser) {
-                setUser(currentUser);
-            } else {
-                setUser(null);
+            setUser(currentUser);
+
+            if (currentUser?.email) {
+                const user = { email: currentUser.email };
+                axios.post('https://assignment-11-server-six-cyan.vercel.app/jwt', user, { withCredentials: true })
+                    .then(res => {
+                        // console.log(res.data);
+                        setLoading(false);
+                    })
             }
-            setLoading(false);  
+            
+            else {
+                axios.post('https://assignment-11-server-six-cyan.vercel.app/logout', {}, {
+                    withCredentials: true
+                })
+                    .then(res => {
+                        // console.log(res.data);
+                        setLoading(false);
+                    })
+            }
 
         });
         return () => {

@@ -1,17 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Authcontext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Orders = () => {
     const {user } = useContext(Authcontext);
     const [items, setitems] = useState([])
 
     useEffect(() => {
-        if (user?.email) {
-            fetch(`http://localhost:5000/orders?email=${user.email}`) 
-                .then(res => res.json())
-                .then(data => setitems(data));
-        }
+        
+            // fetch(`https://assignment-11-server-six-cyan.vercel.app/orders?email=${user.email}`) 
+            //     .then(res => res.json())
+            //     .then(data => setitems(data));
+
+                axios.get(`https://assignment-11-server-six-cyan.vercel.app/orders?email=${user.email}`, {
+                    withCredentials: true
+                })
+                    .then(res => setitems(res.data))
+        
     }, [user]);
 
    
@@ -32,7 +38,7 @@ const Orders = () => {
 
                     // console.log(_id)
 
-                    fetch(`http://localhost:5000/delete/${_id}`, {
+                    fetch(`https://assignment-11-server-six-cyan.vercel.app/delete/${_id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())

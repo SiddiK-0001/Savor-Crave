@@ -25,27 +25,27 @@ const Routes = createBrowserRouter([
             {
                 path:"/",
                 element:<Home></Home>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://assignment-11-server-six-cyan.vercel.app/foods')
             },
             {
                 path:"/all",
                 element:<All></All>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://assignment-11-server-six-cyan.vercel.app/foods')
             },
             {
                 path:"/gallery",
                 element:<Gallery></Gallery>,
-                loader: () => fetch('http://localhost:5000/foods')
+                loader: () => fetch('https://assignment-11-server-six-cyan.vercel.app/foods')
             },
             {
                 path:"/single/:id",
                 element:<Single></Single>,
-                loader: ({params}) => fetch(`http://localhost:5000/foodss/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-six-cyan.vercel.app/foodss/${params.id}`)
             },
             {
                 path:"/purchase/:id",
                 element:<PrivateRoute><Purchase></Purchase></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/foodss/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-six-cyan.vercel.app/foodss/${params.id}`)
             },
             {
                 path:"/add",
@@ -62,7 +62,7 @@ const Routes = createBrowserRouter([
             {
                 path:"/update/:id",
                 element:<PrivateRoute><Update></Update></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/foodss/${params.id}`)
+                loader: ({params}) => fetch(`https://assignment-11-server-six-cyan.vercel.app/foodss/${params.id}`)
             },
             {
                 path:"/login",
