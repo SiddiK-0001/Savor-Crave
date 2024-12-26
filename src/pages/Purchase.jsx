@@ -10,6 +10,15 @@ const Purchase = () => {
     const { user } = useContext(Authcontext);
  
 
+    useEffect(() => {
+        if (food.quantity == 0) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Cannot buy this item. Available quantity is 0",
+            });
+        }
+    }, [food.quantity]);
   
 
    
@@ -175,14 +184,14 @@ const Purchase = () => {
                     {/* Purchase Button */}
                     <button
                         type="submit"
-                        disabled={food.quantity === 0}
+                        disabled={parseInt(food.quantity) == 0}
                         className={`w-full py-2 font-semibold rounded-lg transition-colors text-white duration-400 ${
-                            food.quantity === 0
+                            parseInt(food.quantity) === 0
                                 ? "bg-[#4b321b] cursor-not-allowed"
                                 : "bg-[#CEA17E]  hover:bg-[#654933]"
                         }`}
                     >
-                        {food.quantity === 0 ? "Out of Stock" : "Purchase"}
+                        {parseInt(food.quantity) === 0 ? "Out of Stock" : "Purchase"}
                     </button>
                 </form>
             </div>
