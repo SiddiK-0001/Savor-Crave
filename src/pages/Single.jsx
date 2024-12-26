@@ -5,10 +5,10 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Single = () => {
     const item = useLoaderData();
-      
-    
 
-     
+
+
+
     return (
         <div>
 
@@ -52,6 +52,9 @@ const Single = () => {
                                 <li>
                                     <strong>Prep Time:</strong> {item.preparation_time}
                                 </li>
+                                <li>
+                                    <strong>Purchase Count:</strong> {item?.purchase || 0}
+                                </li>
                             </ul>
                         </div>
 
@@ -66,7 +69,7 @@ const Single = () => {
                                     <ul className="mt-3 text-gray-800 text-md space-y-1">
                                         <p><strong>Key Ingridients:</strong></p>
                                         {
-                                            item?.ingredients?.map((i,idx) =><li key={idx} className='ml-6'><strong>{idx+1}.</strong>{i}</li>)
+                                            item?.ingredients?.map((i, idx) => <li key={idx} className='ml-6'><strong>{idx + 1}.</strong>{i}</li>)
                                         }
                                     </ul>
                                 </li>

@@ -2,6 +2,8 @@ import React, { useContext, useEffect } from 'react';
 import {  useLoaderData,  useParams } from 'react-router-dom';
 import { Authcontext } from '../provider/AuthProvider';
 import Swal from 'sweetalert2';
+import moment from 'moment';
+
 
 
 const Purchase = () => {
@@ -41,6 +43,7 @@ const Purchase = () => {
             };
 
         initialData.id = id;
+        initialData.buyingTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         initialData.newQuantity = parseInt(food.quantity)-parseInt(initialData.purchaseCount);
 
         // console.log( initialData.purchaseCount)

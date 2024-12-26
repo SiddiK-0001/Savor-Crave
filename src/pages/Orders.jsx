@@ -101,6 +101,8 @@ const Orders = () => {
                                         <div className="font-bold">{item.foodName}</div>
                                         <div className="font-thin text-xs">{item.userName}(Owner)</div>
                                         
+                                        <div className="font-thin text-xs">Ordered on: {item?.buyingTime}</div>
+                                        
                                     </div>
                                 </div>
                             </td>

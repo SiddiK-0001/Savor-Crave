@@ -16,33 +16,33 @@ const Home = () => {
                 <div className='h-px flex-grow bg-[#3b2616]'>
                 </div>
                 <div>
-                    <p className="text-center text-4xl font-bold px-5 shadow-md bg-[url('https://i.pinimg.com/236x/6b/38/ef/6b38ef66e69c53fc92a56766ff56adff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#92501e] text-white py-2" >Offering You a Variety of Cuisines with the Best Taste.</p>
+                    <p className="text-center text-4xl font-bold px-5 shadow-md bg-[url('https://i.pinimg.com/236x/6b/38/ef/6b38ef66e69c53fc92a56766ff56adff.jpg')] bg-blend-overlay bg-opacity-90 bg-[#4a280d] text-white py-2 tracking-wide" >Offering You a Variety of Cuisines with the Best Taste.</p>
                 </div>
                 <div className='h-px flex-grow bg-[#3b2616]'>
                 </div>
             </div>
 
-            <div className=" grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 p-4 text-center text-3xl "
+            <div className=" grid grid-cols-1 md:grid-cols-4 gap-4 p-4 text-center text-3xl "
             >
-                <div className="bg-[#010535] text-white p-4 rounded shadow col-span-2 row-span-2 bg-[url('https://i.pinimg.com/474x/14/17/73/141773de185b5bc4db2529935143e64f.jpg')] bg-blend-overlay bg-opacity-60 flex justify-center items-center tracking-widest">
+                <div className="bg-[#010535] text-white p-4 rounded shadow md:col-span-2 row-span-2 bg-[url('https://i.pinimg.com/474x/14/17/73/141773de185b5bc4db2529935143e64f.jpg')] bg-blend-overlay bg-opacity-60 flex justify-center items-center tracking-widest">
                     Italian
                 </div>
-                <div className="bg-[url('https://i.pinimg.com/236x/41/17/0d/41170d7d794d4b0073014535b40b8a6a.jpg')] bg-blend-overlay bg-opacity-70 bg-[#1a500d] text-white p-4 rounded shadow col-span-1 flex justify-center items-center  tracking-widest min-h-[200px]">
+                <div className="bg-[url('https://i.pinimg.com/236x/41/17/0d/41170d7d794d4b0073014535b40b8a6a.jpg')] bg-blend-overlay bg-opacity-70 bg-[#1a500d] text-white p-4 rounded shadow col-span-1 flex justify-center items-center  tracking-widest min-h-[150px]">
                     Mexican
                 </div>
                 <div className="bg-[url('https://i.pinimg.com/236x/16/92/b3/1692b3193ce168983c05e8f42b2997c6.jpg')] bg-blend-overlay bg-opacity-70 bg-[#340909] text-white p-4 rounded shadow col-span-1 flex justify-center items-center  tracking-widest">
                     Indian
                 </div>
-                <div className="bg-[url('https://i.pinimg.com/474x/0c/61/af/0c61af4d4fdf43f21a7164e948d8f46a.jpg')] bg-blend-overlay bg-opacity-70 bg-[#615e0d]   text-white p-4 rounded shadow col-span-2 row-span-2 flex justify-center items-center tracking-widest">
+                <div className="bg-[url('https://i.pinimg.com/474x/0c/61/af/0c61af4d4fdf43f21a7164e948d8f46a.jpg')] bg-blend-overlay bg-opacity-70 bg-[#615e0d]   text-white p-4 rounded shadow md:col-span-2 row-span-2 flex justify-center items-center tracking-widest">
                     Thai
                 </div>
-                <div className="bg-[url('https://i.pinimg.com/236x/23/4d/bf/234dbf6de8c8e9c33f39a88898a9ea21.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow col-span-2 row-span-2 flex justify-center items-center tracking-widest">
+                <div className="bg-[url('https://i.pinimg.com/236x/23/4d/bf/234dbf6de8c8e9c33f39a88898a9ea21.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow md:col-span-2  row-span-2 flex justify-center items-center tracking-widest">
                     Japanese
                 </div>
-                <div className="bg-[url('https://i.pinimg.com/474x/69/7a/a5/697aa5b4be9431d7537e9212f24db0f5.jpg')] bg-blend-overlay bg-opacity-90 bg-[#0f1179a5] text-white p-4 rounded shadow col-span-2  flex justify-center items-center tracking-widest min-h-[200px]">
+                <div className="bg-[url('https://i.pinimg.com/474x/69/7a/a5/697aa5b4be9431d7537e9212f24db0f5.jpg')] bg-blend-overlay bg-opacity-90 bg-[#0f1179a5] text-white p-4 rounded shadow md:col-span-2   flex justify-center items-center tracking-widest min-h-[200px]">
                     French
                 </div>
-                <div className="bg-[url('https://i.pinimg.com/474x/b2/49/38/b24938a1820694a768f2e4b6bfc7a9c9.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow col-span-4  flex justify-center items-center tracking-widest min-h-[200px]">
+                <div className="bg-[url('https://i.pinimg.com/474x/b2/49/38/b24938a1820694a768f2e4b6bfc7a9c9.jpg')] bg-blend-overlay bg-opacity-90 bg-[#6a107e] text-white p-4 rounded shadow md:col-span-4  flex justify-center items-center tracking-widest md:min-h-[200px]">
                     American
                 </div>
             </div>
